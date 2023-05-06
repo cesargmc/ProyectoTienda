@@ -93,8 +93,15 @@ h3 {
     font-size: 3rem;
 }
 
+.navegacion__imagen{
+    position: absolute;
+    top: 10px;
+    left: 1230px;
+    width: 50px;
+}
+
 .navegacion__enlace--activo,
-.navegacion__enlace:hover {
+.navegacion__enlace:hover{
     color: var(--secundario);
 }
 
@@ -256,4 +263,49 @@ button{
     margin-top: 15px;
     font-weight: bolder;
     
+}
+
+/**Administrador inicio**/
+.UltimosRegistros{
+    background-color: rgb(48, 99, 115);
+    border: 2px solid #CCC;
+    padding: 1em;
+    margin: 1em 0 1em 4em;
+    width: 300px;
+    position: absolute;
+    top: 250px;
+    left: 250px;
+}
+
+.Ingresos{
+    background-color: rgb(48, 99, 115);
+    border: 2px solid #CCC;
+    padding: 1em;
+    margin: 1em 0 1em 4em;
+    width: 300px;
+    position: absolute;
+    top: 250px;
+    left: 590px;
+}
+
+.ProductosMas{
+    background-color: rgb(48, 99, 115);
+    border: 2px solid #CCC;
+    padding: 1em;
+    margin: 1em 0 1em 4em;
+    width: 300px;
+    position: absolute;
+    top: 650px;
+    left: 250px;
+}
+
+.ProductosMenos{
+    background-color: rgb(48, 99, 115);
+    border: 2px solid #CCC;
+    padding: 1em;
+    margin: 1em 0 1em 4em;
+    width: 300px;
+    position: absolute;
+    top: 650px;
+    left: 590px;
 }
