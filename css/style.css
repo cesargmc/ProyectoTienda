@@ -148,6 +148,21 @@ h3 {
     line-height: 1.2;
 }
 
+/**Pagina del producto**/
+.imagendelproducto{
+    width: 320px;
+    margin-left: 50px;
+}
+
+.descripcionproducto{
+    position: absolute;
+    margin-left : 420px;
+    top: 360px;
+    
+}
+
+
+
 /** Graficos **/
 .grafico {
     min-height: 30rem;
@@ -207,6 +222,7 @@ h3 {
 .bloque__titulo {
     margin: 0;
 }
+
 
 /**Pagina de creacion de cuenta e inicio de sesion**/
 form{
