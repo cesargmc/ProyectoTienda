@@ -121,7 +121,7 @@ h3 {
 }
 
 .producto__informacion {
-
+    
 }
 
 .producto__nombre {
@@ -199,4 +199,61 @@ h3 {
 
 .bloque__titulo {
     margin: 0;
+}
+
+/**Pagina de creacion de cuenta e inicio de sesion**/
+form{
+    position: absolute;
+    min-width: 280px;
+    max-width: 25%;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    box-shadow: 0 1rem 1rem rgb(0, 0, 0, 0.3);
+    background-color: rgb(48, 99, 115); /**Cambio de color de fondo del box**/
+    border-radius: 5px;
+    color: #FFF;
+}
+
+h1{
+    position: relative;
+    font-size: 35px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid white;
+    color: white;
+}
+
+input{
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 5px 6px;
+    margin-bottom: 15px;
+    border: none;
+    outline: none;
+    border-radius: 1px;
+}
+
+button{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    background-color: #FFCE00;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    color: black;
+    font-weight: bolder;
+}
+
+.link{
+    
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bolder;
+    
 }
