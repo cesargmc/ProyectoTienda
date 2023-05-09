@@ -6,7 +6,7 @@
     --blanco: #FFF;
     --negro: #000;
 
-    --funetePrincipal: 'Staatliches', cursive;
+    --fuentePrincipal: 'Staatliches', cursive;
 }
 
 html {
@@ -42,7 +42,7 @@ img {
 h1, h2, h3 {
     text-align: center;
     color: var(--secundario);
-    font-family: var(--funetePrincipal);
+    font-family: var(--fuentePrincipal);
 }
 h1 {
     font-size: 4rem;
@@ -55,7 +55,6 @@ h3 {
 }
 
 /** Header **/
-
 .header {
     display: flex;
     justify-content: center;
@@ -63,6 +62,15 @@ h3 {
 
 .header__logo {
     margin: 3rem 0;
+}
+
+.header__login {
+    margin: 3rem 2rem 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 4.8rem;
+    height: auto;
 }
 
 /** Footer **/
@@ -74,7 +82,7 @@ h3 {
 
 .footer__texto {
     text-align: center;
-    font-family: var(--funetePrincipal);
+    font-family: var(--fuentePrincipal);
     font-size: 2.2rem;
 }
 
@@ -88,16 +96,9 @@ h3 {
 }
 
 .navegacion__enlace {
-    font-family: var(--funetePrincipal);
+    font-family: var(--fuentePrincipal);
     color: var(--blanco);
     font-size: 3rem;
-}
-
-.navegacion__imagen{
-    position: absolute;
-    top: 10px;
-    left: 1230px;
-    width: 50px;
 }
 
 .navegacion__enlace--activo,
@@ -123,17 +124,6 @@ h3 {
     padding: 1rem;
 }
 
-<<<<<<< HEAD
-=======
-.producto__imagen {
-    width: 100%;
-}
-
-.producto__informacion {
-    
-}
-
->>>>>>> 54ddfb4f2e59d96e4feebd04bbed3c5a7bd97d6f
 .producto__nombre {
     font-size: 4rem;
 }
@@ -145,13 +135,13 @@ h3 {
 
 .producto__nombre,
 .producto__precio {
-    font-family: var(--funetePrincipal);
+    font-family: var(--fuentePrincipal);
     margin: 1rem 0;
     text-align: center;
     line-height: 1.2;
 }
 
-/**Pagina del producto**/
+/** Producto **/
 .imagendelproducto{
     width: 320px;
     margin-left: 50px;
@@ -161,10 +151,7 @@ h3 {
     position: absolute;
     margin-left : 420px;
     top: 360px;
-    
 }
-
-
 
 /** Graficos **/
 .grafico {
@@ -221,22 +208,25 @@ h3 {
     margin: 0;
 }
 
-<<<<<<< HEAD
-/** Pagina del Producto **/
+/** Página del producto **/
+.camisa {
+    padding: 2rem; /** Para que todo el contenido se despegue un poco en la vista móvil **/
+}
+ 
 @media (min-width: 768px) {
     .camisa {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
-    }
+     }
 }
-
+ 
 .formulario {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
-
+ 
 .formulario__campo {
     border: 1rem solid var(--primarioOscuro);
     background-color: transparent;
@@ -244,83 +234,32 @@ h3 {
     font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem;
+    appearance: none;
+    min-width: 50%; /** Aquí sucede la magia de los input **/
 }
-
+ 
 .formulario__submit {
     background-color: var(--secundario);
     border: none;
     font-size: 2rem;
-    font-family: var(--funetePrincipal);
+    font-family: var(--fuentePrincipal);
     padding: 2rem;
-    transition: background-color .3s ease;
+    transition: background-color .5s ease;
     grid-column: 1 / 3;
 }
-
+ 
 .formulario__submit:hover {
     cursor: pointer;
     background-color: var(--secundarioOscuro);
 }
 
-/**Pagina de creacion de cuenta e inicio de sesion**/
-
-=======
-
-/**Pagina de creacion de cuenta e inicio de sesion**/
-form{
-    position: absolute;
-    min-width: 280px;
-    max-width: 25%;
-    width: 25%;
-    top: 440px;
-    left: 672px;
-    transform: translate(-50%, -50%);
-    padding: 15px;
-    box-shadow: 0 1rem 1rem rgb(0, 0, 0, 0.3);
-    background-color: rgb(48, 99, 115); /**Cambio de color de fondo del box**/
-    border-radius: 5px;
-    color: #FFF;
+/** Pagina Inicio de Sesion **/
+.cuenta {
+    padding: 2rem;
 }
 
-h1{
-    position: relative;
-    font-size: 35px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 3px solid white;
-    color: white;
-}
-
-input{
-    display: block;
-    width: 100%;
-    height: 40px;
-    padding: 5px 6px;
-    margin-bottom: 15px;
-    border: none;
-    outline: none;
-    border-radius: 1px;
-}
-
-button{
-    display: block;
-    margin: auto;
-    width: 100%;
-    height: 40px;
-    background-color: #FFCE00;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    color: black;
-    font-weight: bolder;
-}
->>>>>>> 54ddfb4f2e59d96e4feebd04bbed3c5a7bd97d6f
-
-.link{
-    
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bolder;
-    
+.cuenta p {
+    margin: 0;
 }
 
 /**Administrador inicio**/
