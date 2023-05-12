@@ -263,46 +263,52 @@ h3 {
 }
 
 /**Administrador inicio**/
-.UltimosRegistros{
-    background-color: rgb(48, 99, 115);
-    border: 2px solid #CCC;
-    padding: 1em;
-    margin: 1em 0 1em 4em;
-    width: 300px;
-    position: absolute;
-    top: 250px;
-    left: 250px;
+.cuadros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    text-align: center;
+    
+  }
+  
+  @media (min-width: 768px) {
+    .cuadros {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .cuadro {
+    border: 2px solid black;
+    padding: 1rem;
+  }
+
+  /**Administrador - productos **/
+  .boton-añadirproducto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+    gap: 8rem;
+    text-align: center;
+    width: 12%;
+    margin-left: 85%;
+    display: grid;
+    justify-content: center;
+  }
+  
+  
+  /**Administrador cuando le picas al boton añadir producto**/
+  .admin-añadir-producto {
+    display: grid;
+    grid-template-columns: repeat(-1, 1fr);
+    gap: 4rem;
+    text-align: center;
 }
 
-.Ingresos{
-    background-color: rgb(48, 99, 115);
-    border: 2px solid #CCC;
-    padding: 1em;
-    margin: 1em 0 1em 4em;
-    width: 300px;
-    position: absolute;
-    top: 250px;
-    left: 590px;
+.imagen-añadirproducto{
+    width: 12%;
+    margin-left: 45%;
+    display: grid;
+    justify-content: center;
 }
 
-.ProductosMas{
-    background-color: rgb(48, 99, 115);
-    border: 2px solid #CCC;
-    padding: 1em;
-    margin: 1em 0 1em 4em;
-    width: 300px;
-    position: absolute;
-    top: 650px;
-    left: 250px;
-}
 
-.ProductosMenos{
-    background-color: rgb(48, 99, 115);
-    border: 2px solid #CCC;
-    padding: 1em;
-    margin: 1em 0 1em 4em;
-    width: 300px;
-    position: absolute;
-    top: 650px;
-    left: 590px;
-}
