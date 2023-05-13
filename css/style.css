@@ -311,4 +311,48 @@ h3 {
     justify-content: center;
 }
 
+/*Administrador - Tabla de productos */
+table {
+    border-collapse: collapse;
+    width: 40%;
+    margin-left: 30%;
+    
+  }
 
+  th{
+    color: black;
+    background-color: #f2f2f294;
+    border: 4px solid black;
+    padding: 4px;
+    
+  }
+
+  td{
+    border: 4px solid black;
+    color: black;
+    padding: 1.5%;
+    background-color: white;
+  }
+
+  .tabladeproductos{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    text-align: center;
+  }
+
+  /*Tabla de ventas*/
+  .tabladeventas{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    text-align: center;
+  }
+
+  /**Tabla de usuarios**/
+  .tabladeusuarios{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    text-align: center;
+  }
