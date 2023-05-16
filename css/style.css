@@ -38,6 +38,7 @@ img {
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 h1, h2, h3 {
     text-align: center;
@@ -71,6 +72,15 @@ h3 {
     right: 0;
     max-width: 4.8rem;
     height: auto;
+}
+
+@media (max-width: 450px) {
+    .header__login {
+        width: 40px;
+    }
+    .header__logo {
+        width: 200px;
+    }
 }
 
 /** Footer **/
@@ -208,11 +218,7 @@ h3 {
     margin: 0;
 }
 
-/** Página del producto **/
-.camisa {
-    padding: 2rem; /** Para que todo el contenido se despegue un poco en la vista móvil **/
-}
- 
+/** Página del producto **/ 
 @media (min-width: 768px) {
     .camisa {
         display: grid;
@@ -235,7 +241,7 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem;
     appearance: none;
-    min-width: 50%; /** Aquí sucede la magia de los input **/
+    min-width: 50%;
 }
  
 .formulario__submit {
@@ -254,50 +260,86 @@ h3 {
 }
 
 /** Pagina Inicio de Sesion **/
-.cuenta {
-    padding: 2rem;
-}
-
 .cuenta p {
     margin: 0;
 }
 
-/**Administrador inicio**/
+/**------ADMINISTRADOR------**/
+
+/** Navegacion **/
+.navegacion-admin {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 450px) {
+    .navegacion-admin {
+      display: grid;
+    }
+}
+
+.navegacion-admin__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+.navegacion-admin__enlace--activo,
+.navegacion-admin__enlace:hover {
+    color: var(--secundario);
+}
+
+/** Inicio **/
 .cuadros {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
     text-align: center;
-    
-  }
+    padding: 2rem 0;
+}
   
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .cuadros {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
+}
   
-  .cuadro {
-    border: 2px solid black;
+.cuadro {
+    border: 4px solid var(--primarioOscuro);
     padding: 1rem;
-  }
+}
 
-  /**Administrador - productos **/
-  .boton-añadirproducto{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+/** Productos **/
+.admin__producto {
+    padding: 2rem 0;
+}
+
+.nuevo-producto {
+    padding-bottom: 2rem;
+    width: 100%;
+    overflow: auto;
+}
+
+.nuevo-producto__boton {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
     padding: 2rem;
-    gap: 8rem;
-    text-align: center;
-    width: 12%;
-    margin-left: 85%;
-    display: grid;
-    justify-content: center;
-  }
-  
-  
-  /**Administrador cuando le picas al boton añadir producto**/
-  .admin-añadir-producto {
+    transition: background-color .5s ease;
+    float: right;
+}
+ 
+.nuevo-producto__boton:hover {
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+}
+
+/** Pagina de Nuevos Productos **/
+.admin-añadir-producto {
     display: grid;
     grid-template-columns: repeat(-1, 1fr);
     gap: 4rem;
@@ -311,48 +353,61 @@ h3 {
     justify-content: center;
 }
 
-/*Administrador - Tabla de productos */
+/** Tabla **/
+.tabla__submit, .tabla__boton {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .5s ease;
+    grid-column: 1 / 3;
+    width: 10.3rem;
+}
+
 table {
     border-collapse: collapse;
-    width: 40%;
-    margin-left: 30%;
-    
-  }
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
 
-  th{
+th{
     color: black;
     background-color: #f2f2f294;
-    border: 4px solid black;
+    border: 4px solid var(--primarioOscuro);
     padding: 4px;
-    
-  }
+}
 
-  td{
-    border: 4px solid black;
-    color: black;
+td{
+    border: 4px solid var(--primarioOscuro);
     padding: 1.5%;
     background-color: white;
-  }
+    width: min-content;
+}
 
-  .tabladeproductos{
+.tablas{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 3rem;
     text-align: center;
-  }
+    padding: 2rem 0;
+}
 
-  /*Tabla de ventas*/
-  .tabladeventas{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 3rem;
-    text-align: center;
-  }
-
-  /**Tabla de usuarios**/
-  .tabladeusuarios{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 3rem;
-    text-align: center;
-  }
+/** Boton **/
+@media (max-width: 450px) {
+    .tabla__producto {
+      font-size: 1.5rem;
+    }
+    .tabla__submit, .tabla__boton {
+        font-size: 1.5rem;
+        width: 8rem;
+        margin-bottom: 1rem;
+    }
+    table{
+        font-size: 1.5rem;
+    }
+}
