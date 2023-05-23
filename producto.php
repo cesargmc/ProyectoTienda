@@ -1,4 +1,5 @@
 <?php
+    $producto = true;
     include './includes/templates/header.php';
 ?>
 

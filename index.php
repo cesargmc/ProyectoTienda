@@ -1,5 +1,5 @@
 <?php
-    $inicio = true;
+    $index = true;
     include './includes/templates/header.php';
 ?>
 

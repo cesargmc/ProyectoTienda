@@ -19,21 +19,66 @@
         </a>
     </header>
 
-    <?php if($inicio) { ?>
+    <?php if ($index) { ?>
         <nav class="navegacion">
             <a class="navegacion__enlace navegacion__enlace--activo" href="index.php">Tienda</a>
             <a class="navegacion__enlace" href="nosotros.php">Nosotros</a>
         </nav>
-    <?php } else { if ($nosotros) {?>
+    <?php } elseif ($nosotros) { ?>
         <nav class="navegacion">
             <a class="navegacion__enlace" href="index.php">Tienda</a>
             <a class="navegacion__enlace navegacion__enlace--activo" href="nosotros.php">Nosotros</a>
         </nav>
-    <?php } else { if ($login) {?>
-        
-    <?php } else { ?>
+    <?php } elseif ($producto) { ?>
         <nav class="navegacion">
             <a class="navegacion__enlace" href="index.php">Tienda</a>
             <a class="navegacion__enlace" href="nosotros.php">Nosotros</a>
         </nav>
-    <?php }}} ?>
+    <?php } elseif ($login) { ?>
+        
+    <?php } elseif ($inicio) { ?>
+        <nav class="navegacion-admin">
+            <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="administrador.php">Inicio</a>
+            <a class="navegacion-admin__enlace" href="admin-producto.php">Productos</a>
+            <a class="navegacion-admin__enlace" href="admin-ventas.php">Ventas</a>
+            <a class="navegacion-admin__enlace" href="admin-usuarios.php">Usuarios</a>
+            <a class="navegacion-admin__enlace" href="admin-mensaje.php">Mensajes</a>
+            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+        </nav>
+    <?php } elseif ($productos) { ?>
+        <nav class="navegacion-admin">
+            <a class="navegacion-admin__enlace" href="administrador.php">Inicio</a>
+            <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="admin-producto.php">Productos</a>
+            <a class="navegacion-admin__enlace" href="admin-ventas.php">Ventas</a>
+            <a class="navegacion-admin__enlace" href="admin-usuarios.php">Usuarios</a>
+            <a class="navegacion-admin__enlace" href="admin-mensaje.php">Mensajes</a>
+            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+        </nav>
+    <?php } elseif ($ventas) { ?>
+        <nav class="navegacion-admin">
+            <a class="navegacion-admin__enlace" href="administrador.php">Inicio</a>
+            <a class="navegacion-admin__enlace" href="admin-producto.php">Productos</a>
+            <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="admin-ventas.php">Ventas</a>
+            <a class="navegacion-admin__enlace" href="admin-usuarios.php">Usuarios</a>
+            <a class="navegacion-admin__enlace" href="admin-mensaje.php">Mensajes</a>
+            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+        </nav>
+    <?php } elseif ($usuario) { ?>
+        <nav class="navegacion-admin">
+            <a class="navegacion-admin__enlace" href="administrador.php">Inicio</a>
+            <a class="navegacion-admin__enlace" href="admin-producto.php">Productos</a>
+            <a class="navegacion-admin__enlace" href="admin-ventas.php">Ventas</a>
+            <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="admin-usuarios.php">Usuarios</a>
+            <a class="navegacion-admin__enlace" href="admin-mensaje.php">Mensajes</a>
+            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+        </nav>
+    <?php } elseif ($mensaje) { ?>
+        <nav class="navegacion-admin">
+            <a class="navegacion-admin__enlace" href="administrador.php">Inicio</a>
+            <a class="navegacion-admin__enlace" href="admin-producto.php">Productos</a>
+            <a class="navegacion-admin__enlace" href="admin-ventas.php">Ventas</a>
+            <a class="navegacion-admin__enlace" href="admin-usuarios.php">Usuarios</a>
+            <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="admin-mensaje.php">Mensajes</a>
+            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+        </nav>
+    <?php } ?>
