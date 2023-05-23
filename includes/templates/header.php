@@ -24,4 +24,16 @@
             <a class="navegacion__enlace navegacion__enlace--activo" href="index.php">Tienda</a>
             <a class="navegacion__enlace" href="nosotros.php">Nosotros</a>
         </nav>
-    <?php } ?>
+    <?php } else { if ($nosotros) {?>
+        <nav class="navegacion">
+            <a class="navegacion__enlace" href="index.php">Tienda</a>
+            <a class="navegacion__enlace navegacion__enlace--activo" href="nosotros.php">Nosotros</a>
+        </nav>
+    <?php } else { if ($login) {?>
+        
+    <?php } else { ?>
+        <nav class="navegacion">
+            <a class="navegacion__enlace" href="index.php">Tienda</a>
+            <a class="navegacion__enlace" href="nosotros.php">Nosotros</a>
+        </nav>
+    <?php }}} ?>

@@ -1,11 +1,7 @@
 <?php
+    $nosotros = true;
     include './includes/templates/header.php';
 ?>
-
-    <nav class="navegacion">
-        <a class="navegacion__enlace" href="index.html">Tienda</a>
-        <a class="navegacion__enlace navegacion__enlace--activo" href="nosotros.html">Nosotros</a>
-    </nav>
 
     <main class="contenedor">
         <h1>Nosotros</h1>

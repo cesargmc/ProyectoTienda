@@ -8,7 +8,7 @@
 
         <div class="grid">
             <div class="producto">
-                <a href="producto.html">
+                <a href="producto.php">
                     <img class="producto__imagen" src="img/1.jpg" alt="Imagen de camisa">
                     <div class="producto__informacion">
                         <p class="producto__nombre">Producto 1</p>
