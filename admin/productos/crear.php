@@ -3,24 +3,38 @@
     require '../../includes/config/database.php';
     $db = conectarDB();
 
+    // Arreglo de mensaje errores
+    $errores = [];
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
 
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $descripcion = $_POST['descripcion'];
 
-        // Insertar en la base de datos
-        $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion' ) ";
+        if(!$nombre) {
+            $errores[] = "Debes añadir un nombre";
+        }
 
-        echo $query;
+        if(!$precio) {
+            $errores[] = "Debes añadir el precio";
+        }
 
-        $resultado = mysqli_query($db, $query);
+        if(!$descripcion) {
+            $errores[] = "Debes añadir una descripcion";
+        }
 
-        if($resultado) {
-            echo "Insertado correctamente";
+        echo "<pre>";
+        var_dump($errores);
+        echo "</pre>";
+
+        exit;
+
+        if(empty ($errores)) {
+            // Insertar en la base de datos
+            $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion' ) ";
+
+            $resultado = mysqli_query($db, $query);
         }
     }
 
