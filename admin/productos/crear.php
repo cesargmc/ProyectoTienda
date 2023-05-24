@@ -12,6 +12,16 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+        echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+
+        echo "<pre>";
+        var_dump($_FILES);
+        echo "</pre>";
+
+        exit;
+
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $descripcion = $_POST['descripcion'];
@@ -52,7 +62,7 @@
             </div>
         <?php endforeach; ?>
         <div class="admin-añadir-producto">
-            <form class="añadir" method="POST" action="/admin/productos/crear.php">
+            <form class="añadir" method="POST" action="/admin/productos/crear.php" enctype="multipart/form-data">
                 <p>Nombre del producto:</p>
                 <input class="formulario__campo" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
             
@@ -75,7 +85,7 @@
                 <div class="imagen-añadirproducto">
                     <img src="../../img/boton-subir-a-la-nube.png" >
                 </div>
-                <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
+                <input class="formulario__campo" id="imagen" name="imagen" type="file" accept="img/jpeg , image/png">
                 <br><br>
                 <input class="formulario__submit" type="submit" value="Registrar Producto">
             </form>
