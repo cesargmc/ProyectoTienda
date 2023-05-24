@@ -1,4 +1,12 @@
 <?php
+    // Base de datos
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
+    // Consultar las tallas
+    $consulta = "SELECT * FROM talla";
+    $resultado = mysqli_query($db, $consulta);
+
     $producto = true;
     include './includes/templates/header.php';
 ?>
@@ -14,14 +22,12 @@
 
                 <form class="formulario">
                     <select class="formulario__campo">
-                        <option disabled selected>-- Seleccionar Talla --</option>
-                        <option>Extra Chica</option>
-                        <option>Chica</option>
-                        <option>Mediana</option>
-                        <option>Grande</option>
-                        <option>Extra Grande</option>
+                        <option disabled selected value="">-- Seleccionar Talla --</option>
+                        <?php while($row = mysqli_fetch_assoc($resultado) ) : ?>
+                            <option value="<?php echo $row['id_talla']; ?>"><?php echo $row['descripcion'] . ""; ?></option>
+                        <?php endwhile ?>
                     </select>
-                    <input class="formulario__campo" type="number" placeholder="Cantidad">
+                    <input class="formulario__campo" type="number" placeholder="Cantidad" min="1">
                     <input class="formulario__submit" type="submit" value="Comprar">
                 </form>
             </div>

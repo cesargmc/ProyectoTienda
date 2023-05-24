@@ -33,6 +33,10 @@
             $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion' ) ";
 
             $resultado = mysqli_query($db, $query);
+
+            if($resultado) {
+                header('Location: ../productos.php');
+            }
         }
     }
 
@@ -65,7 +69,7 @@
                 <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1"><br>
             
                 <p>Descripcion</p>
-                <textarea class="formulario__campo" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>"></textarea><br>
+                <textarea class="formulario__campo" id="descripcion" name="descripcion"><?php echo $descripcion; ?></textarea><br>
 
                 <p>Imagen</p>
                 <div class="imagen-añadirproducto">
