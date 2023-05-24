@@ -10,10 +10,18 @@
 
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
-        $talla__s = $_POST['talla__s'];
-        $talla__m = $_POST['talla__m'];
-        $talla__l = $_POST['talla__l'];
         $descripcion = $_POST['descripcion'];
+
+        // Insertar en la base de datos
+        $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion' ) ";
+
+        echo $query;
+
+        $resultado = mysqli_query($db, $query);
+
+        if($resultado) {
+            echo "Insertado correctamente";
+        }
     }
 
 
