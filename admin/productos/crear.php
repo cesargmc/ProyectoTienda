@@ -43,7 +43,7 @@
     include '../../includes/templates/header.php';
 ?>
 
-    <div class="admin-añadir-producto">
+    <main class="admin-añadir-producto">
         <form class="añadir" method="POST" action="/admin/productos/crear.php">
             <p>Nombre del producto:</p>
             <input class="formulario__campo" id="nombre" name="nombre"><br>
@@ -68,10 +68,9 @@
                 <img src="../../img/boton-subir-a-la-nube.png" >
             </div>
             <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
-            <br><br>
             <input class="formulario__submit" type="submit" value="Registrar Producto">
         </form>
-    </div>
+    </main>
 
 </body>
 </html>
