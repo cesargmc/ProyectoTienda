@@ -6,6 +6,10 @@
     // Arreglo de mensaje errores
     $errores = [];
 
+    $nombre = '';
+    $precio = '';
+    $descripcion = '';
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $nombre = $_POST['nombre'];
@@ -37,41 +41,41 @@
     include '../../includes/templates/header.php';
 ?>
 
-    <main class="admin-añadir-producto">
+    <main class="contenedor">
         <?php foreach($errores as $error): ?>
-        <div class="alerta error">
-            <?php echo $error;  ?>
-        </div>
-        <?php endforeach; ?>
-
-        <form class="añadir" method="POST" action="/admin/productos/crear.php">
-            <p>Nombre del producto:</p>
-            <input class="formulario__campo" id="nombre" name="nombre"><br>
-        
-            <p>Precio:</p>
-            <input class="formulario__campo" id="precio" name="precio" type="number" min="1"><br>
-
-            <p>Talla S:</p>
-            <input class="formulario__campo" id="talla__s" name="talla__s" type="number" min="1"><br>
-
-            <p>Talla M:</p>
-            <input class="formulario__campo" id="talla__m" name="talla__m" type="number" min="1"><br>
-
-            <p>Talla L:</p>
-            <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1"><br>
-        
-            <p>Descripcion</p>
-            <textarea class="formulario__campo" id="descripcion" name="descripcion"></textarea><br>
-
-            <p>Imagen</p>
-            <div class="imagen-añadirproducto">
-                <img src="../../img/boton-subir-a-la-nube.png" >
+            <div class="alerta error">
+                <?php echo $error;  ?>
             </div>
-            <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
-            <br><br>
-            <input class="formulario__submit" type="submit" value="Registrar Producto">
-        </form>
-    </main>
+        <?php endforeach; ?>
+        <div class="admin-añadir-producto">
+            <form class="añadir" method="POST" action="/admin/productos/crear.php">
+                <p>Nombre del producto:</p>
+                <input class="formulario__campo" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
+            
+                <p>Precio:</p>
+                <input class="formulario__campo" id="precio" name="precio" type="number" min="1" value="<?php echo $precio; ?>"><br>
 
+                <p>Talla S:</p>
+                <input class="formulario__campo" id="talla__s" name="talla__s" type="number" min="1"><br>
+
+                <p>Talla M:</p>
+                <input class="formulario__campo" id="talla__m" name="talla__m" type="number" min="1"><br>
+
+                <p>Talla L:</p>
+                <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1"><br>
+            
+                <p>Descripcion</p>
+                <textarea class="formulario__campo" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>"></textarea><br>
+
+                <p>Imagen</p>
+                <div class="imagen-añadirproducto">
+                    <img src="../../img/boton-subir-a-la-nube.png" >
+                </div>
+                <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
+                <br><br>
+                <input class="formulario__submit" type="submit" value="Registrar Producto">
+            </form>
+        </div>
+    </main>
 </body>
 </html>
