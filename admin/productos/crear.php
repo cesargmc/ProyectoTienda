@@ -12,19 +12,13 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
-
-        echo "<pre>";
-        var_dump($_FILES);
-        echo "</pre>";
-
-        exit;
-
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $descripcion = $_POST['descripcion'];
+
+        // Files para una variable
+
+        $imagen = $_FILES['imagen'];
 
         if(!$nombre) {
             $errores[] = "Debes añadir un nombre";
@@ -36,6 +30,10 @@
 
         if(!$descripcion) {
             $errores[] = "Debes añadir una descripcion";
+        }
+
+        if(!$imagen['name']) {
+            $errores[] = "Debes añadir una imagen";
         }
 
         if(empty ($errores)) {
