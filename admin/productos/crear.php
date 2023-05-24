@@ -24,12 +24,6 @@
             $errores[] = "Debes añadir una descripcion";
         }
 
-        echo "<pre>";
-        var_dump($errores);
-        echo "</pre>";
-
-        exit;
-
         if(empty ($errores)) {
             // Insertar en la base de datos
             $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion' ) ";
@@ -44,6 +38,10 @@
 ?>
 
     <main class="admin-añadir-producto">
+        <?php foreach($errores as $error): ?>
+            <?php echo $error;  ?>
+        <?php endforeach; ?>
+
         <form class="añadir" method="POST" action="/admin/productos/crear.php">
             <p>Nombre del producto:</p>
             <input class="formulario__campo" id="nombre" name="nombre"><br>
@@ -68,6 +66,7 @@
                 <img src="../../img/boton-subir-a-la-nube.png" >
             </div>
             <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
+            <br><br>
             <input class="formulario__submit" type="submit" value="Registrar Producto">
         </form>
     </main>
