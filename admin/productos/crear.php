@@ -3,36 +3,49 @@
     require '../../includes/config/database.php';
     $db = conectarDB();
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $talla__s = $_POST['talla__s'];
+        $talla__m = $_POST['talla__m'];
+        $talla__l = $_POST['talla__l'];
+        $descripcion = $_POST['descripcion'];
+    }
+
 
     $crear = true;
     include '../../includes/templates/header.php';
 ?>
 
     <div class="admin-añadir-producto">
-        <form class="añadir" >
+        <form class="añadir" method="POST" action="/admin/productos/crear.php">
             <p>Nombre del producto:</p>
-            <input class="formulario__campo" id="producto" placeholder="Producto Titulo" required><br>
+            <input class="formulario__campo" id="nombre" name="nombre"><br>
         
             <p>Precio:</p>
-            <input class="formulario__campo" id="precio" placeholder="Ej: $300" type="number" min="1" required><br>
+            <input class="formulario__campo" id="precio" name="precio" type="number" min="1"><br>
 
             <p>Talla S:</p>
-            <input class="formulario__campo" id="talla__s" type="number" min="1" required><br>
+            <input class="formulario__campo" id="talla__s" name="talla__s" type="number" min="1"><br>
 
             <p>Talla M:</p>
-            <input class="formulario__campo" id="talla__m" type="number" min="1" required><br>
+            <input class="formulario__campo" id="talla__m" name="talla__m" type="number" min="1"><br>
 
             <p>Talla L:</p>
-            <input class="formulario__campo" id="talla__l" type="number" min="1" required><br>
+            <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1"><br>
         
             <p>Descripcion</p>
-            <textarea class="formulario__campo" id="descripcion" required></textarea><br>
+            <textarea class="formulario__campo" id="descripcion" name="descripcion"></textarea><br>
 
             <p>Imagen</p>
             <div class="imagen-añadirproducto">
                 <img src="../../img/boton-subir-a-la-nube.png" >
             </div>
-            <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg" required>
+            <input class="formulario__campo" id="imagen" type="file" accept="image/png , img/jpg">
             <br><br>
             <input class="formulario__submit" type="submit" value="Registrar Producto">
         </form>
