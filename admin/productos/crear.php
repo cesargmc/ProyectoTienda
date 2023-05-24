@@ -39,7 +39,9 @@
 
     <main class="admin-añadir-producto">
         <?php foreach($errores as $error): ?>
+        <div class="alerta error">
             <?php echo $error;  ?>
+        </div>
         <?php endforeach; ?>
 
         <form class="añadir" method="POST" action="/admin/productos/crear.php">
