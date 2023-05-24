@@ -1,13 +1,13 @@
 <?php
     $productos = true;
-    include './includes/templates/header.php';
+    include '../includes/templates/header.php';
 ?>
 
 
     <main class="contenedor">
         <div class="admin__producto">
             <div class="nuevo-producto">
-                <a href="admin-añadirproducto.php" class="link-right">
+                <a href="productos/crear.php" class="link-right">
                     <input class="nuevo-producto__boton" type="button" value="Añadir Producto">
                 </a>
             </div>

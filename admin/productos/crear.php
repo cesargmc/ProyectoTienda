@@ -1,6 +1,6 @@
 <?php
-    $productos = true;
-    include './includes/templates/header.php';
+    $crear = true;
+    include '../../includes/templates/header.php';
 ?>
 
     <div class="admin-añadir-producto">
@@ -25,7 +25,7 @@
 
             <p>Imagen</p>
             <div class="imagen-añadirproducto">
-                <img src="img/boton-subir-a-la-nube.png" >
+                <img src="../../img/boton-subir-a-la-nube.png" >
             </div>
             <input class="formulario__submit" type="file" accept="image/" required>
             <br><br>
