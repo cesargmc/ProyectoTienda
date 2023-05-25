@@ -1,4 +1,12 @@
 <?php
+    //Base de datos 
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
+    //Consultar usuarios
+    $consulta = "SELECT * FROM venta";
+    $resultado = mysqli_query($db, $consulta);
+
     $ventas = true;
     include '../includes/templates/header.php';
 ?>
@@ -12,32 +20,19 @@
                     <th>Precio</th>
                     <th>Usuario </th>
                 </thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td>nombre</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td>nombre</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td>nombre</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td>nombre</td>
-                </tr>
+
+                <?php while($row = mysqli_fetch_assoc($resultado) ) : ?>
+                    <tr>
+                        <td><?php echo $row['producto_id_producto']; ?></td>
+                        <td><?php echo $row['cantidad']; ?></td>
+                        <td><?php echo $row['costo_total']; ?></td>
+                        <td><?php echo $row['usuario']; ?></td>
+                    </tr>
+                <?php endwhile; ?> 
+  
             </table>
         </div>
     </main>
+    
 </body>
 </html>
