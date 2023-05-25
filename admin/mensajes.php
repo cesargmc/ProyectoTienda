@@ -1,4 +1,8 @@
 <?php
+    // Base de datos
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
     $mensaje = true;
     include '../includes/templates/header.php';
 ?>
@@ -16,25 +20,25 @@
             
                 <div class="cuadro">
                     <h3 class="cuadro__titulo"></h3>
-                    <p>Nombre</p>
-                    <p>Correo</p>
-                    <p>Mensaje</p>
+                    <p><?php echo $row['nombre']; ?></p>
+                    <p><?php echo $row['email']; ?></p>
+                    <p><?php echo $row['id_mensaje']; ?></p>
                     <input class="formulario__submit" type="submit" value="Eliminar">
                 </div>
             
                 <div class="cuadro">
                     <h3 class="cuadro__titulo"></h3>
-                    <p>Nombre</p>
-                    <p>Correo</p>
-                    <p>Mensaje</p>
+                    <p><?php echo $row['nombre']; ?></p>
+                    <p><?php echo $row['email']; ?></p>
+                    <p><?php echo $row['id_mensaje']; ?></p>
                     <input class="formulario__submit" type="submit" value="Eliminar">
                 </div>
             
                 <div class="cuadro">
                     <h3 class="cuadro__titulo"></h3>
-                    <p>Nombre</p>
-                    <p>Correo</p>
-                    <p>Mensaje</p>
+                    <p><?php echo $row['nombre']; ?></p>
+                    <p><?php echo $row['email']; ?></p>
+                    <p><?php echo $row['id_mensaje']; ?></p>
                     <input class="formulario__submit" type="submit" value="Eliminar">
                 </div>
             </div>
