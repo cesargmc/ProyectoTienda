@@ -38,21 +38,21 @@
 
         if(empty ($errores)) {
             // Subida de archivos
-            $carpetaImagenes = '../../imagenes';
+            $carpetaImagenes = '../../imagenes/';
 
             if(!is_dir($carpetaImagenes)) {
                 mkdir($carpetaImagenes);
             }
 
+            // Nombre unico
+            $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
             // Subida de imagen
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . "/archivo.jpeg");
-
-            exit;
-
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
 
 
             // Insertar en la base de datos
-            $query = " INSERT INTO producto ( nombre, precio, descripcion ) VALUES ( '$nombre', '$precio', '$descripcion') ";
+            $query = " INSERT INTO producto ( nombre, precio, descripcion, imagen ) VALUES ( '$nombre', '$precio', '$descripcion', '$nombreImagen' ) ";
 
             $resultado = mysqli_query($db, $query);
 
