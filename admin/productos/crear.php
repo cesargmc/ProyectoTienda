@@ -57,7 +57,7 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                header('Location: ../productos.php');
+                header('Location: ../productos.php?resultado=1');
             }
         }
     }

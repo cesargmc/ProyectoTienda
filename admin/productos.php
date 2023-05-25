@@ -1,10 +1,16 @@
 <?php
+    $resultado = $_GET['resultado'];
+
     $productos = true;
     include '../includes/templates/header.php';
 ?>
 
 
     <main class="contenedor">
+        <?php if($resultado == 1): ?>
+            <p class="alerta exito">Producto registrado correctamente</p>
+        <?php endif; ?>
+
         <div class="admin__producto">
             <div class="nuevo-producto">
                 <a href="productos/crear.php" class="link-right">
