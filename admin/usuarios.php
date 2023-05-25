@@ -1,4 +1,12 @@
 <?php
+    //Base de datos 
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
+    //Consultar usuarios
+    $consulta = "SELECT * FROM usuario";
+    $resultado = mysqli_query($db, $consulta);
+
     $usuario = true;
     include '../includes/templates/header.php';
 ?>
@@ -10,22 +18,14 @@
                     <th>Nombre</th>
                     <th>Email</th>
                 </thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>correo@correo.com</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>correo@correo.com</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>correo@correo.com</td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>correo@correo.com</td>
-                </tr>
+
+                <?php while($row = mysqli_fetch_assoc($resultado) ) : ?>
+                    <tr>
+                        <td><?php echo $row['nombre']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                    </tr>
+                <?php endwhile; ?>    
+
             </table>
         </div>
     </main>
