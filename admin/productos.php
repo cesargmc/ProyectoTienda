@@ -12,6 +12,30 @@
     // Muestra mensaje condicional
     $resultado = $_GET['resultado'];
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['id'];
+        // Validacion input
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        if($id){
+            // Eliminar imagen
+            $query = "SELECT imagen FROM producto WHERE id_producto = ${id}";
+            $resultado = mysqli_query($db, $query);
+            $productoImagen = mysqli_fetch_assoc($resultado);
+            unlink('../imagenes/' . $productoImagen['imagen']);
+
+            // Eliminar producto
+            $query = "DELETE FROM producto WHERE id_producto = ${id}";
+            $resultado = mysqli_query($db, $query);
+
+            if($resultado) {
+                header('Location: productos.php');
+            }
+        }
+
+        var_dump($id);
+    }
+
     // Template
     $productos = true;
     include '../includes/templates/header.php';
@@ -48,6 +72,7 @@
                         <div class="crud__acciones">
                             <a href="productos/actualizar.php?id=<?php echo $producto['id_producto']; ?>" class="crud__accion">Actualizar</a>
                             <form method="POST">
+                                <input type="hidden" class="crud__accion" name="id" value="<?php echo $producto['id_producto'] ?>">
                                 <input type="submit" class="crud__accion" value="Eliminar">
                             </form>
                         </div>
