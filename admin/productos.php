@@ -29,7 +29,7 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                header('Location: productos.php');
+                header('Location: productos.php?resultado=3');
             }
         }
 
@@ -44,9 +44,11 @@
 
     <main class="contenedor">
         <?php if($resultado == 1): ?>
-            <p class="alerta exito">Producto registrado correctamente</p>
+            <p class="alerta exito">Producto Registrado Correctamente</p>
         <?php elseif($resultado == 2): ?>
-            <p class="alerta exito">Producto actualizado correctamente</p>
+            <p class="alerta exito">Producto Actualizado Correctamente</p>
+        <?php elseif($resultado == 3): ?>
+            <p class="alerta exito">Producto Eliminado Correctamente</p>
         <?php endif; ?>
 
         <div class="admin__producto">
