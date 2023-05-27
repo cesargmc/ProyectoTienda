@@ -42,7 +42,10 @@
                     <td><?php echo $producto['nombre']; ?></td>
                     <td><?php  ?></td>
                     <td>$<?php echo $producto['precio']; ?></td>
-                    <td><input class="tabla__boton" type="submit" value="Editar">  <input class="tabla__submit" type="submit" value="Eliminar"></td>
+                    <td>
+                        <a href="productos/actualizar.php?id=<?php echo $producto['id_producto']; ?>" class="tabla__boton">Actualizar</a>
+                        <a href="#" class="tabla__boton">Eliminar</a>
+                    </td>
                 </tr>
                 <?php endwhile; ?>
             </table>

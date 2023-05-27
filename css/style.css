@@ -355,7 +355,7 @@ h3 {
 }
 
 /** Tabla **/
-.tabla__submit, .tabla__boton {
+.tabla__boton {
     background-color: var(--secundario);
     border: none;
     font-size: 2rem;
@@ -364,6 +364,7 @@ h3 {
     transition: background-color .5s ease;
     grid-column: 1 / 3;
     width: 10.3rem;
+    color: var(--negro);
 }
 
 table {
