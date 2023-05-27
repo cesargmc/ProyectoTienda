@@ -41,12 +41,16 @@
                 </thead>
                 <?php while( $producto = mysqli_fetch_assoc($resultadoConsulta)): ?>
                 <tr>
-                    <td><?php echo $producto['nombre']; ?></td>
+                    <td class="nombre"><?php echo $producto['nombre']; ?></td>
                     <td><?php  ?></td>
                     <td>$<?php echo $producto['precio']; ?></td>
-                    <td>
-                        <a href="productos/actualizar.php?id=<?php echo $producto['id_producto']; ?>" class="tabla__boton">Actualizar</a>
-                        <a href="#" class="tabla__boton">Eliminar</a>
+                    <td class="crud">
+                        <div class="crud__acciones">
+                            <a href="productos/actualizar.php?id=<?php echo $producto['id_producto']; ?>" class="crud__accion">Actualizar</a>
+                            <form method="POST">
+                                <input type="submit" class="crud__accion" value="Eliminar">
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 <?php endwhile; ?>
