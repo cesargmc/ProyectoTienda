@@ -63,7 +63,7 @@
     }
 
 
-    $crear = true;
+    $crud = true;
     include '../../includes/templates/header.php';
 ?>
 

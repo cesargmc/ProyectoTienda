@@ -11,12 +11,20 @@
     require '../../includes/config/database.php';
     $db = conectarDB();
 
+    // Obtener los datos del producto
+    $consulta = "SELECT * FROM producto WHERE id_producto = ${id}";
+    $resultado = mysqli_query($db, $consulta);
+    $producto = mysqli_fetch_assoc($resultado);
+
+    
+
     // Arreglo de mensaje errores
     $errores = [];
 
-    $nombre = '';
-    $precio = '';
-    $descripcion = '';
+    $nombre = $producto['nombre'];
+    $precio = $producto['precio'];
+    $descripcion = $producto['descripcion'];
+    $imagenProducto = $producto['imagen'];
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -71,7 +79,7 @@
     }
 
 
-    $crear = true;
+    $crud = true;
     include '../../includes/templates/header.php';
 ?>
 
@@ -82,7 +90,7 @@
             </div>
         <?php endforeach; ?>
         <div class="admin-añadir-producto">
-            <form class="añadir" method="POST" action="/admin/productos/crear.php" enctype="multipart/form-data">
+            <form class="añadir" method="POST" enctype="multipart/form-data">
                 <p>Nombre del producto:</p>
                 <input class="formulario__campo" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
             
@@ -103,7 +111,7 @@
 
                 <p>Imagen</p>
                 <div class="imagen-añadirproducto">
-                    <img src="../../img/boton-subir-a-la-nube.png" >
+                    <img src="/imagenes/<?php echo $imagenProducto; ?>" >
                 </div>
                 <input class="formulario__campo" id="imagen" name="imagen" type="file" accept="img/jpeg , image/png">
                 <br><br>

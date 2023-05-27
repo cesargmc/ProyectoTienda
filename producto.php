@@ -7,7 +7,7 @@
     $consulta = "SELECT * FROM talla";
     $resultado = mysqli_query($db, $consulta);
 
-    $producto = true;
+    $productoI = true;
     include './includes/templates/header.php';
 ?>
 

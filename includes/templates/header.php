@@ -29,7 +29,7 @@
             <a class="navegacion__enlace" href="index.php">Tienda</a>
             <a class="navegacion__enlace navegacion__enlace--activo" href="nosotros.php">Nosotros</a>
         </nav>
-    <?php } elseif ($producto) { ?>
+    <?php } elseif ($productoI) { ?>
         <nav class="navegacion">
             <a class="navegacion__enlace" href="index.php">Tienda</a>
             <a class="navegacion__enlace" href="nosotros.php">Nosotros</a>
@@ -54,7 +54,7 @@
             <a class="navegacion-admin__enlace" href="mensajes.php">Mensajes</a>
             <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
         </nav>
-    <?php } elseif ($crear) { ?>
+    <?php } elseif ($crud) { ?>
         <nav class="navegacion-admin">
             <a class="navegacion-admin__enlace" href="../../admin/index.php">Inicio</a>
             <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="../../admin/productos.php">Productos</a>
