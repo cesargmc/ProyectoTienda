@@ -1,4 +1,15 @@
 <?php
+    // Base de datos
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
+    // Consultar
+    $query = "SELECT * FROM producto";
+
+    // Resultado
+    $resultado = mysqli_query($db, $query);
+
+
     $index = true;
     include './includes/templates/header.php';
 ?>
@@ -7,16 +18,17 @@
         <h1>Nuestros Productos</h1>
 
         <div class="grid">
+        <?php while($producto = mysqli_fetch_assoc($resultado)): ?>
             <div class="producto">
-                <a href="producto.php">
-                    <img class="producto__imagen" src="img/1.jpg" alt="Imagen de camisa">
+                <a href="producto.php?id=<?php echo $producto['id_producto']; ?>">
+                    <img class="producto__imagen" src="/imagenes/<?php echo $producto['imagen']; ?>" alt="Imagen de camisa">
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Producto 1</p>
-                        <p class="producto__precio">$300</p>
+                        <p class="producto__nombre"><?php echo $producto['nombre']; ?></p>
+                        <p class="producto__precio">$<?php echo $producto['precio']; ?></p>
                     </div>
                 </a>
             </div>
-
+            <?php endwhile; ?>
             <div class="grafico"></div> <!--Imagenes de muestra no esta listo-->
         </div>
     </main>
