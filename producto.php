@@ -3,22 +3,34 @@
     require 'includes/config/database.php';
     $db = conectarDB();
 
-    // Consultar las tallas
+    // Validacion
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if(!$id) {
+        header('Location: index.php');
+    }
+
+    // Consulta
+    $query = "SELECT * FROM producto WHERE id_producto = ${id}";
+    $resultado = mysqli_query($db, $query);
+    $producto = mysqli_fetch_assoc($resultado);
+
     $consulta = "SELECT * FROM talla";
     $resultado = mysqli_query($db, $consulta);
-
+    
     $productoI = true;
     include './includes/templates/header.php';
 ?>
 
     <main class="contenedor">
-        <h1>Producto</h1>
+        <h1><?php echo $producto['nombre']; ?></h1>
 
         <div class="camisa">
-            <img class="camisa__imagen" src="img/1.jpg" alt="Imagen del producto">
+            <img class="camisa__imagen" src="/imagenes/<?php echo $producto['imagen']; ?>" alt="Imagen del producto">
 
             <div class="camisa__contenido">
-                <p>Vestibulum pellentesque iaculis mauris sit amet fermentum. Nunc eleifend ex eget vehicula rhoncus. Integer semper porta purus. Quisque tristique nec erat quis placerat. Nulla consequat, velit eu tristique varius, ligula orci accumsan magna, et egestas ipsum nulla id sapien. Fusce sit amet felis odio. Donec vulputate urna mattis arcu imperdiet iaculis. Suspendisse blandit tortor id eros suscipit dapibus.</p>
+                <p><?php echo $producto['descripcion']; ?></p>
 
                 <form class="formulario">
                     <select class="formulario__campo">
