@@ -49,22 +49,31 @@
         }
 
         if(empty ($errores)) {
-             //       // Subida de archivos
-             //       $carpetaImagenes = '../../imagenes/';
+            /** Subida de archivos **/ 
+            // Crear carpeta
+            $carpetaImagenes = '../../imagenes/';
 
-             //       if(!is_dir($carpetaImagenes)) {
-             //           mkdir($carpetaImagenes);
-             //       }
+            if(!is_dir($carpetaImagenes)) {
+                 mkdir($carpetaImagenes);
+            }
 
-             //       // Nombre unico
-             //       $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+            $nombreImagen = '';
 
-             //      // Subida de imagen
-             //       move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+            // Eliminar imagen previa
+            if($imagen['name']){
+                unlink($carpetaImagenes . $producto['imagen']);
 
+                // Nombre unico
+                $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
+                // Subida de imagen
+                move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+            } else {
+                $nombreImagen = $producto['imagen'];
+            }
 
             // Insertar en la base de datos
-            $query = " UPDATE producto SET nombre = '${nombre}', precio = '${precio}', descripcion = '${descripcion}' WHERE id_producto = ${id}";
+            $query = " UPDATE producto SET nombre = '${nombre}', precio = '${precio}', descripcion = '${descripcion}', imagen = '${nombreImagen}' WHERE id_producto = ${id}";
 
             $resultado = mysqli_query($db, $query);
 
