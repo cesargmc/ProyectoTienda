@@ -21,6 +21,8 @@
     <main class="contenedor">
         <?php if($resultado == 1): ?>
             <p class="alerta exito">Producto registrado correctamente</p>
+        <?php elseif($resultado == 2): ?>
+            <p class="alerta exito">Producto actualizado correctamente</p>
         <?php endif; ?>
 
         <div class="admin__producto">
