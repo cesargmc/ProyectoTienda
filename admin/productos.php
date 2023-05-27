@@ -1,6 +1,18 @@
 <?php
+    // Base de datos
+    require '../includes/config/database.php';
+    $db = conectarDB();
+
+    // Escribir el Query
+    $query = "SELECT * FROM producto";
+
+    // Consultar la BD
+    $resultadoConsulta = mysqli_query($db, $query);
+
+    // Muestra mensaje condicional
     $resultado = $_GET['resultado'];
 
+    // Template
     $productos = true;
     include '../includes/templates/header.php';
 ?>
@@ -25,31 +37,14 @@
                     <th>Precio</th>
                     <th></th>
                 </thead>
+                <?php while( $producto = mysqli_fetch_assoc($resultadoConsulta)): ?>
                 <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
+                    <td><?php echo $producto['nombre']; ?></td>
+                    <td><?php  ?></td>
+                    <td>$<?php echo $producto['precio']; ?></td>
                     <td><input class="tabla__boton" type="submit" value="Editar">  <input class="tabla__submit" type="submit" value="Eliminar"></td>
                 </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td><input class="tabla__boton" type="submit" value="Editar">  <input class="tabla__submit" type="submit" value="Eliminar"></td>
-    
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td><input class="tabla__boton" type="submit" value="Editar">  <input class="tabla__submit" type="submit" value="Eliminar"></td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td>45</td>
-                    <td>$500</td>
-                    <td><input class="tabla__boton" type="submit" value="Editar">  <input class="tabla__submit" type="submit" value="Eliminar"></td>
-                </tr>
+                <?php endwhile; ?>
             </table>
         </div>
     </main>

@@ -1,6 +1,6 @@
 <?php
     //Base de datos 
-    require 'includes/config/database.php';
+    require '../includes/config/database.php';
     $db = conectarDB();
     
     //Ultimos registros
@@ -11,7 +11,7 @@
     $consultaIngresos = "SELECT SUM (costo_total) AS total FROM venta";
     $resultadoIngresos = mysqli_query($db, $consultaIngresos);
     $filaIngresos = mysqli_fetch_assoc ($resultadoIngresos);
-    $totalIngresos = $filaIngresos['total']
+    $totalIngresos = $filaIngresos['total'];
 
     //Producto Mas cantidad
     $consultaMaxCantidad = "SELECT producto_id_producto, MAX (cantidad) AS max_cantidad FROM talla_producto GROUP BY producto_id_producto";
@@ -39,7 +39,7 @@
     $consultaProductoMenorCantidad = "SELECT nombre FROM producto WHERE id_prodicto = $productoMenorCantidadID";
     $resultadoProductoMenorCantidad = mysqli_query($db, $consultaProductoMenorCantidad);
     $filaProductoMenorCantidad = mysqli_fetch_assoc($resultadoProductoMenorCantidad);
-    $productoMenorCantidad = $filaProductoMenorCantidad['nombre']
+    $productoMenorCantidad = $filaProductoMenorCantidad['nombre'];
 
     $inicio = true;
     include '../includes/templates/header.php';
