@@ -1,4 +1,10 @@
 <?php
+    // Base de datos
+    require 'includes/config/database.php';
+    $db = conectarDB(); 
+
+
+    
     $login = true;
     include './includes/templates/header.php';
 ?>
