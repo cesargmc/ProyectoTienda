@@ -81,7 +81,7 @@
             <a class="navegacion-admin__enlace" href="mensajes.php">Mensajes</a>
             <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
         </nav>
-    <?php } elseif ($mensaje) { ?>
+    <?php } else { if  ($mensaje) { ?>
         <nav class="navegacion-admin">
             <a class="navegacion-admin__enlace" href="index.php">Inicio</a>
             <a class="navegacion-admin__enlace" href="productos.php">Productos</a>
@@ -90,4 +90,8 @@
             <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="mensajes.php">Mensajes</a>
             <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
         </nav>
+<<<<<<< HEAD
     <?php }?>
+=======
+    <?php }} ?>
+>>>>>>> a1424a72be660b908b33d07876867e0dc7da42f7
