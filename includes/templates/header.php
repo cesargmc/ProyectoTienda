@@ -90,4 +90,4 @@
             <a class="navegacion-admin__enlace navegacion-admin__enlace--activo" href="mensajes.php">Mensajes</a>
             <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
         </nav>
-    <?php }?>
+    <?php } ?>
