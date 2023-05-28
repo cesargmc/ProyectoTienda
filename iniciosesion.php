@@ -4,11 +4,17 @@
     $db = conectarDB(); 
 
     // Autenticar usuario
+    $errores = [];
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         var_dump($_POST);
 
         $email = mysqli_real_escape_string($db, filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ));
         $password = $_POST['password'];
+    
+        if(!$email) {
+            $errores[] = "El email es obligatorio";
+        }
     }
 
 
