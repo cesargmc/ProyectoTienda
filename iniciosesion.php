@@ -13,7 +13,11 @@
         $password = $_POST['password'];
     
         if(!$email) {
-            $errores[] = "El email es obligatorio";
+            $errores[] = "El email es obligatorio o no es valido";
+        }
+        
+        if(!$password) {
+            $errores[] = "El password es obligatorio";
         }
     }
 
