@@ -34,7 +34,7 @@
     </main>
 
     <footer class="footer">
-        <p class="footer__texto">VT & CG Store - Derechos Reservados 2023 C.</p>
+        <p class="footer__texto">VT & CG Store - Derechos Reservados 2023</p>
     </footer>
 </body>
 </html>
