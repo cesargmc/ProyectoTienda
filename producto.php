@@ -14,6 +14,12 @@
     // Consulta
     $query = "SELECT * FROM producto WHERE id_producto = ${id}";
     $resultado = mysqli_query($db, $query);
+
+    // Validacion
+    if(!$resultado->num_rows) {
+        header('Location: index.php');
+    }
+
     $producto = mysqli_fetch_assoc($resultado);
 
     $consulta = "SELECT * FROM talla";
