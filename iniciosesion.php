@@ -37,7 +37,8 @@
                     // Llenar arreglo
                     $_SESSION['usuario'] = array(
                         'email' => $usuario['email'],
-                        'rol_id' => $usuario['rol_id_rol']
+                        'rol_id' => $usuario['rol_id_rol'],
+                        'id_usuario' => $usuario['id_usuario']
                     );
 
                     if($usuario['rol_id_rol'] == 1) {
