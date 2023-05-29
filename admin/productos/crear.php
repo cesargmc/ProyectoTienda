@@ -76,8 +76,8 @@
             $idProducto = mysqli_insert_id($db);
 
             // Obtener la cantidad de la talla S
-            $cantidadS = $_POST['tallas'];
-            $cantidadM = $_POST['tallam'];
+            $cantidadS = $_POST['talla__s'];
+            $cantidadM = $_POST['talla__m'];
             $cantidadL = $_POST['talla__l'];
 
             if(!$cantidadS) {

@@ -14,7 +14,7 @@
         <a href="../index.php">
             <img class="header__logo" src="/img/logo.png" alt="Logotipo">
         </a>
-        <a href="iniciosesion.php">
+        <a href="../iniciosesion.php">
             <img class="header__login" src="/img/usuario.png" alt="">
         </a>
     </header>
