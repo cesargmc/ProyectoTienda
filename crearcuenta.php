@@ -39,6 +39,29 @@
         if(!$password) {
             $errores[] = "Debes añadir un password";
         }
+
+        if(empty ($errores)) {
+            // Generar un hash del password
+            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
+            // Obtener la fecha actual
+            $fechaCreacion = date('Y-m-d');
+
+            // Crear la consulta SQL
+            $query = "INSERT INTO usuario (usuario, nombre, apellido, email, password, fecha, rol_id_rol) 
+                    VALUES ('$usuario', '$nombre', '$apellido', '$email', '$passwordHash', '$fechaCreacion', '2')";
+
+            echo "<pre>";
+            var_dump($query);
+            echo "</pre>";
+
+            // Agregar el usuario a la base de datos
+            mysqli_query($db, $query);
+
+            // Redirigir al usuario a la página de inicio de sesión u otra página adecuada
+            header("Location: iniciosesion.php");
+            exit();
+        }
     }
 
     $login = true;
