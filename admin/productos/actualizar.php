@@ -16,8 +16,6 @@
     $resultado = mysqli_query($db, $consulta);
     $producto = mysqli_fetch_assoc($resultado);
 
-    
-
     // Arreglo de mensaje errores
     $errores = [];
 
@@ -25,6 +23,15 @@
     $precio = $producto['precio'];
     $descripcion = $producto['descripcion'];
     $imagenProducto = $producto['imagen'];
+
+    // Obtener las cantidades de las tallas del producto
+    $consultaCantidades = "SELECT cantidad FROM talla_producto WHERE producto_id_producto = ${id}";
+    $resultadoCantidades = mysqli_query($db, $consultaCantidades);
+    $tallas = mysqli_fetch_all($resultadoCantidades, MYSQLI_ASSOC);
+
+    $cantidadS = $tallas[0]['cantidad'];
+    $cantidadM = $tallas[1]['cantidad'];
+    $cantidadL = $tallas[2]['cantidad'];
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
