@@ -19,6 +19,26 @@
         $apellido = $_POST['apellido'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+
+        if(!$usuario) {
+            $errores[] = "Debes añadir un usuario";
+        }
+
+        if(!$nombre) {
+            $errores[] = "Debes añadir un nombre";
+        }
+
+        if(!$apellido) {
+            $errores[] = "Debes añadir un apellido";
+        }
+
+        if(!$email) {
+            $errores[] = "Debes añadir un email";
+        }
+
+        if(!$password) {
+            $errores[] = "Debes añadir un password";
+        }
     }
 
     $login = true;
