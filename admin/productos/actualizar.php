@@ -139,13 +139,13 @@
                 <input class="formulario__campo" id="precio" name="precio" type="number" min="1" value="<?php echo $precio; ?>"><br>
 
                 <p>Talla S:</p>
-                <input class="formulario__campo" id="talla__s" name="talla__s" type="number" min="1"><br>
+                <input class="formulario__campo" id="talla__s" name="talla__s" type="number" min="1" value="<?php echo $cantidadS; ?>"><br>
 
                 <p>Talla M:</p>
-                <input class="formulario__campo" id="talla__m" name="talla__m" type="number" min="1"><br>
+                <input class="formulario__campo" id="talla__m" name="talla__m" type="number" min="1" value="<?php echo $cantidadM; ?>"><br>
 
                 <p>Talla L:</p>
-                <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1"><br>
+                <input class="formulario__campo" id="talla__l" name="talla__l" type="number" min="1" value="<?php echo $cantidadL; ?>"><br>
             
                 <p>Descripcion</p>
                 <textarea class="formulario__campo" id="descripcion" name="descripcion"><?php echo $descripcion; ?></textarea><br>
