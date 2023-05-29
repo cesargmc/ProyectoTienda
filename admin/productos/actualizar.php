@@ -103,6 +103,18 @@
                     $errores[] = "Debes añadir una cantidad válida para la talla L";
                 }
 
+                if (empty($errores)) {
+                    // Actualizar las cantidades en la tabla talla_producto
+                    $updateCantidadS = "UPDATE talla_producto SET cantidad = ${nuevaCantidadS} WHERE talla_id_talla = 1 AND producto_id_producto = ${id}";
+                    $updateCantidadM = "UPDATE talla_producto SET cantidad = ${nuevaCantidadM} WHERE talla_id_talla = 2 AND producto_id_producto = ${id}";
+                    $updateCantidadL = "UPDATE talla_producto SET cantidad = ${nuevaCantidadL} WHERE talla_id_talla = 3 AND producto_id_producto = ${id}";
+
+                    mysqli_query($db, $updateCantidadS);
+                    mysqli_query($db, $updateCantidadM);
+                    mysqli_query($db, $updateCantidadL);
+
+                    header('Location: ../productos.php?resultado=2');
+                }
             }
         }
     }
