@@ -27,6 +27,24 @@
     
     $productoI = true;
     include './includes/templates/header.php';
+
+    session_start();
+
+    // Verificar si el usuario ha iniciado sesión
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: iniciosesion.php");
+        exit();
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $idProducto = $_POST['id_producto'];
+        $idProducto = filter_var($idProducto, FILTER_VALIDATE_INT);
+    
+        $idUsuario = $_SESSION['usuario']['id_usuario'];
+    
+        $cantidad = $_POST['cantidad'];
+        $cantidad = filter_var($cantidad, FILTER_VALIDATE_INT);
+    }
 ?>
 
     <main class="contenedor">
