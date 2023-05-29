@@ -56,7 +56,29 @@
             if ($cantidad > $cantidadActual) {
                 // No hay suficiente stock, muestra un mensaje de error
                 echo "<script>alert('No hay suficiente stock disponible'); window.location.href = 'producto.php?id=" . $id . "';</script>";
+            } else {
+                // Restar la cantidad comprada de la cantidad actual del producto
+                $cantidadRestante = $cantidadActual - $cantidad;
 
+                // Actualizar la cantidad en la base de datos
+                $query = "UPDATE talla_producto SET cantidad = ${cantidadRestante} WHERE producto_id_producto = ${idProducto}";
+                mysqli_query($db, $query);
+
+                // Continuar con el proceso de compra
+                $query = "INSERT INTO venta (costo_total, usuario_id_usuario) VALUES (0, ${idUsuario})";
+                mysqli_query($db, $query);
+                $idVenta = mysqli_insert_id($db);
+        
+                $precio = $producto['precio'];
+                $costoTotal = $precio * $cantidad;
+                $query = "UPDATE venta SET costo_total = ${costoTotal} WHERE id_venta = ${idVenta}";
+                mysqli_query($db, $query);
+        
+                $fecha = date('Y-m-d');
+                $query = "INSERT INTO producto_venta (producto_id_producto, venta_id_venta, cantidad, fecha) VALUES (${idProducto}, ${idVenta}, ${cantidad}, '${fecha}')";
+                mysqli_query($db, $query);
+        
+                echo "<script>alert('Compra realizada correctamente');</script>";
             }
         }
     }
