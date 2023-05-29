@@ -85,7 +85,11 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                header('Location: ../productos.php?resultado=2');
+                // Actualizar las cantidades de las tallas en la tabla talla_producto
+                $nuevaCantidadS = $_POST['tallas'];
+                $nuevaCantidadM = $_POST['tallam'];
+                $nuevaCantidadL = $_POST['talla__l'];
+
             }
         }
     }
