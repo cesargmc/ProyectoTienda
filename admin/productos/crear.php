@@ -63,6 +63,19 @@
             $cantidadS = $_POST['tallas'];
             $cantidadM = $_POST['tallam'];
             $cantidadL = $_POST['talla__l'];
+
+            if(!$cantidadS) {
+                $errores[] = "Debes añadir una cantidad en S";
+            }
+
+            if(!$cantidadM) {
+                $errores[] = "Debes añadir una cantidad en M";
+            }
+
+            if(!$cantidadL) {
+                $errores[] = "Debes añadir una cantidad en L";
+            }
+
         }
     }
 
