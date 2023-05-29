@@ -32,6 +32,21 @@
 
                 if($auth) {
                     // El usuario esta autenticado
+                    session_start();
+
+                    // Llenar arreglo
+                    $_SESSION['usuario'] = array(
+                        'email' => $usuario['email'],
+                        'rol_id' => $usuario['rol_id_rol']
+                    );
+
+                    if($usuario['rol_id_rol'] == 1) {
+                        header("Location: admin/index.php");
+                    } else {
+                        header("Location: index.php");
+                    } 
+                    exit();
+
                 } else {
                     $errores[] = "El password es incorrecto";
                 }
