@@ -1,4 +1,18 @@
 <?php
+    // Base de datos
+    require '/includes/config/database.php';
+    $db = conectarDB();
+
+    // Arreglo de mensaje errores
+    $errores = [];
+
+    $usuario = '';
+    $nombre = '';
+    $apellido = '';
+    $email = '';
+    $password = '';
+
+
     $login = true;
     include './includes/templates/header.php';
 ?>
