@@ -76,6 +76,21 @@
                 $errores[] = "Debes añadir una cantidad en L";
             }
 
+            if(empty ($errores)) {
+                // Insertar en la tabla talla_producto
+                $queryTallaS = "INSERT INTO talla_producto (talla_id_talla, producto_id_producto, cantidad) VALUES (1, '$idProducto', '$cantidadS')";
+                $queryTallaM = "INSERT INTO talla_producto (talla_id_talla, producto_id_producto, cantidad) VALUES (2, '$idProducto', '$cantidadM')";
+                $queryTallaL = "INSERT INTO talla_producto (talla_id_talla, producto_id_producto, cantidad) VALUES (3, '$idProducto', '$cantidadL')";
+
+                $resultadoTallaS = mysqli_query($db, $queryTallaS);
+                $resultadoTallaM = mysqli_query($db, $queryTallaM);
+                $resultadoTallaL = mysqli_query($db, $queryTallaL);
+
+                if($resultadoTallaS && $resultadoTallaM && $resultadoTallaL) {
+                    header('Location: ../productos.php');
+                }
+            }
+
         }
     }
 
