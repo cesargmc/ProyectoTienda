@@ -14,4 +14,4 @@
     $query = " INSERT INTO usuario (email, password, rol_id_rol) VALUES ( '${email}', '${passwordHash}', '1'); ";
 
     // Agregar a la base de datos
-    mysqli_query($db, $query)
+    mysqli_query($db, $query);
