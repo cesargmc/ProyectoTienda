@@ -42,7 +42,7 @@
 
             // Eliminar producto
             $queryProducto = "DELETE FROM producto WHERE id_producto = ${id}";
-            $resultado = mysqli_query($db, $queryPropducto);
+            $resultado = mysqli_query($db, $queryProducto);
 
             var_dump($query);
 

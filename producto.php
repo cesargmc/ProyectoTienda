@@ -49,8 +49,11 @@
         $cantidad = filter_var($cantidad, FILTER_VALIDATE_INT);
 
         if ($idProducto && $idUsuario && $cantidad) {
+            $idTalla = $_POST['talla'];
+            $idTalla = filter_var($idTalla, FILTER_VALIDATE_INT);
+
             // Obtener la cantidad actual del producto
-            $query = "SELECT cantidad FROM talla_producto WHERE producto_id_producto = ${idProducto}";
+            $query = "SELECT cantidad FROM talla_producto WHERE producto_id_producto = ${idProducto} AND talla_id_talla = ${idTalla}";
             $resultado = mysqli_query($db, $query);
             $tallaProducto = mysqli_fetch_assoc($resultado);
             $cantidadActual = $tallaProducto['cantidad'];
@@ -64,7 +67,7 @@
                 $cantidadRestante = $cantidadActual - $cantidad;
 
                 // Actualizar la cantidad en la base de datos
-                $query = "UPDATE talla_producto SET cantidad = ${cantidadRestante} WHERE producto_id_producto = ${idProducto}";
+                $query = "UPDATE talla_producto SET cantidad = ${cantidadRestante} WHERE producto_id_producto = ${idProducto} AND talla_id_talla = ${idTalla}";
                 mysqli_query($db, $query);
 
                 // Continuar con el proceso de compra
