@@ -19,44 +19,6 @@
         exit();
     }
 
-    //Ultimos registros
-    $consultaUltimosRegistros = "SELECT * FROM venta ORDER BY id_venta DESC LIMIT 5";
-    $resultadoUltimosRegistros = mysqli_query($db, $consultaUltimosRegistros);
-
-    //Ingresos
-    $consultaIngresos = "SELECT SUM (costo_total) AS total FROM venta";
-    $resultadoIngresos = mysqli_query($db, $consultaIngresos);
-    $filaIngresos = mysqli_fetch_assoc ($resultadoIngresos);
-    $totalIngresos = $filaIngresos['total'];
-
-    //Producto Mas cantidad
-    $consultaMaxCantidad = "SELECT producto_id_producto, MAX (cantidad) AS max_cantidad FROM talla_producto GROUP BY producto_id_producto";
-    $resultadoMaxCantidad = mysqli_query ($db, $consultaMaxCantidad);
-    $filaMaxCantidad = mysqli_fetch_assoc ($resultadoMaxCantidad);
-    $productoMayorCantidadID = $filaMaxCantidad ['producto_id_producto'];
-    $maxCantidad = $filaMaxCantidad ['max_cantidad'];
-
-    //Consultar el nombre del producto con mayor cantidad
-    $consultaProductoMayorCantidad = "SELECT nombre FROM producto WHERE id_producto = $productoMayorCantidad";
-    $resultadoProductoMayorCantidad = mysqli_query($db, $consultaProductoMayorCantidad);
-    $filaProductoMayorCantidad = mysqli_fetch_assoc($resultadoProductoMayorCantidad);
-    $productoMayorCantidad = $filaProductoMayorCantidad['nombre'];
-
-    /**------------------ **/
-
-    //Producto Menos cantidad
-    $consultaMinCantidad = "SELECT producto_id_producto, MIN(cantidad) AS min_cantidad FROM talla_producto GROUP BY producto_id_producto";
-    $resultadoMinCantidad = mysqli_fetch_assoc($db, $consultaMinCantidad);
-    $filaMinCantidad = mysqli_fetch_assoc($resultadoMinCantidad);
-    $productoMenorCantidadID = $filaMinCantidad ['producto_id_producto'];
-    $minCantidad = $filaMinCantidad['min_cantidad'];
-
-    //Consultar el nombre del producto con menor cantidad
-    $consultaProductoMenorCantidad = "SELECT nombre FROM producto WHERE id_prodicto = $productoMenorCantidadID";
-    $resultadoProductoMenorCantidad = mysqli_query($db, $consultaProductoMenorCantidad);
-    $filaProductoMenorCantidad = mysqli_fetch_assoc($resultadoProductoMenorCantidad);
-    $productoMenorCantidad = $filaProductoMenorCantidad['nombre'];
-
     $inicio = true;
     include '../includes/templates/header.php';
 ?>
