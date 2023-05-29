@@ -12,6 +12,14 @@
     $email = '';
     $password = '';
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $usuario = $_POST['usuario'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    }
 
     $login = true;
     include './includes/templates/header.php';
