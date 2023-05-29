@@ -56,9 +56,13 @@
 
             $resultado = mysqli_query($db, $query);
 
-            if($resultado) {
-                header('Location: ../productos.php?resultado=1');
-            }
+            // Obtener el id_producto recién insertado
+            $idProducto = mysqli_insert_id($db);
+
+            // Obtener la cantidad de la talla S
+            $cantidadS = $_POST['tallas'];
+            $cantidadM = $_POST['tallam'];
+            $cantidadL = $_POST['talla__l'];
         }
     }
 
