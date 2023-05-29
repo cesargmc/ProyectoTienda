@@ -1,6 +1,6 @@
 <?php
     // Base de datos
-    require '/includes/config/database.php';
+    require 'includes/config/database.php';
     $db = conectarDB();
 
     // Arreglo de mensaje errores
@@ -50,10 +50,6 @@
             // Crear la consulta SQL
             $query = "INSERT INTO usuario (usuario, nombre, apellido, email, password, fecha, rol_id_rol) 
                     VALUES ('$usuario', '$nombre', '$apellido', '$email', '$passwordHash', '$fechaCreacion', '2')";
-
-            echo "<pre>";
-            var_dump($query);
-            echo "</pre>";
 
             // Agregar el usuario a la base de datos
             mysqli_query($db, $query);

@@ -102,8 +102,8 @@
 
             if($resultado) {
                 // Actualizar las cantidades de las tallas en la tabla talla_producto
-                $nuevaCantidadS = $_POST['tallas'];
-                $nuevaCantidadM = $_POST['tallam'];
+                $nuevaCantidadS = $_POST['talla__s'];
+                $nuevaCantidadM = $_POST['talla__m'];
                 $nuevaCantidadL = $_POST['talla__l'];
 
                 // Validar las nuevas cantidades

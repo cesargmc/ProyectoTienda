@@ -72,8 +72,8 @@
 
         <div class="cuenta">
             <form class="formulario" method="POST">
-                <input class="formulario__campo" name = "email" type="text" placeholder="Ingrese su usuario">
-                <input class="formulario__campo" name = "password" type="password" placeholder="Ingrese su contraseña">
+                <input class="formulario__campo" name="email" type="text" placeholder="Ingrese su usuario">
+                <input class="formulario__campo" name="password" type="password" placeholder="Ingrese su contraseña">
                 <input class="formulario__submit" type="submit" value="Ingresar">
                 <a href="crearcuenta.php"><p>¿No tienes una cuenta?</p></a>
             </form>

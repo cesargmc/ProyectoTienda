@@ -75,7 +75,7 @@
             // Obtener el id_producto recién insertado
             $idProducto = mysqli_insert_id($db);
 
-            // Obtener la cantidad de la talla S
+            // Obtener la cantidad de la talla
             $cantidadS = $_POST['talla__s'];
             $cantidadM = $_POST['talla__m'];
             $cantidadL = $_POST['talla__l'];

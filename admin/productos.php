@@ -26,7 +26,7 @@
     $resultadoConsulta = mysqli_query($db, $query);
 
     // Muestra mensaje condicional
-    $resultado = $_GET['resultado'];
+    $resultado = $_GET['resultado'] ?? null;
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
@@ -41,15 +41,15 @@
             unlink('../imagenes/' . $productoImagen['imagen']);
 
             // Eliminar producto
-            $query = "DELETE FROM producto WHERE id_producto = ${id}";
-            $resultado = mysqli_query($db, $query);
+            $queryProducto = "DELETE FROM producto WHERE id_producto = ${id}";
+            $resultado = mysqli_query($db, $queryPropducto);
+
+            var_dump($query);
 
             if($resultado) {
                 header('Location: productos.php?resultado=3');
             }
         }
-
-        var_dump($id);
     }
     
     function obtenerCantidadTotal($idProducto, $db) {
