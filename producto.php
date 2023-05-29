@@ -44,6 +44,21 @@
     
         $cantidad = $_POST['cantidad'];
         $cantidad = filter_var($cantidad, FILTER_VALIDATE_INT);
+
+        if ($idProducto && $idUsuario && $cantidad) {
+            // Obtener la cantidad actual del producto
+            $query = "SELECT cantidad FROM talla_producto WHERE producto_id_producto = ${idProducto}";
+            $resultado = mysqli_query($db, $query);
+            $tallaProducto = mysqli_fetch_assoc($resultado);
+            $cantidadActual = $tallaProducto['cantidad'];
+
+            // Verificar si la cantidad disponible es suficiente
+            if ($cantidad > $cantidadActual) {
+                // No hay suficiente stock, muestra un mensaje de error
+                echo "<script>alert('No hay suficiente stock disponible'); window.location.href = 'producto.php?id=" . $id . "';</script>";
+
+            }
+        }
     }
 ?>
 
