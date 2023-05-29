@@ -51,6 +51,13 @@
 
         var_dump($id);
     }
+    
+    function obtenerCantidadTotal($idProducto, $db) {
+        $query = "SELECT SUM(cantidad) AS total FROM talla_producto WHERE producto_id_producto = ${idProducto}";
+        $resultado = mysqli_query($db, $query);
+        $fila = mysqli_fetch_assoc($resultado);
+        return $fila['total'];
+    }
 
     // Template
     $productos = true;
