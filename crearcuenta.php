@@ -72,12 +72,12 @@
         <h1>Crear cuenta</h1>
 
         <div class="cuenta">
-            <form class="formulario">
-                <input class="formulario__campo" type="text" placeholder="Ingrese su nombre">
-                <input class="formulario__campo" type="text" placeholder="Ingrese su apellido">
-                <input class="formulario__campo" type="text" placeholder="Ingrese su usuario">
-                <input class="formulario__campo" type="email" placeholder="Ingrese su correo electronico ">
-                <input class="formulario__campo" type="password" placeholder="Ingrese su contraseña">
+            <form class="formulario" method="POST" action="crearcuenta.php">
+                <input class="formulario__campo" id="nombre" name="nombre" type="text" placeholder="Ingrese su nombre">
+                <input class="formulario__campo" id="apellido" name="apellido" type="text" placeholder="Ingrese su apellido">
+                <input class="formulario__campo" id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario">
+                <input class="formulario__campo" id="email" name="email" type="email" placeholder="Ingrese su correo electronico ">
+                <input class="formulario__campo" id="password" name="password" type="password" placeholder="Ingrese su contraseña">
                 <input class="formulario__campo" type="password" placeholder="Reingrese su contraseña">
                 <input class="formulario__submit" class="formulario__submit" type="submit" value="Registrarme">
                 <a href="iniciosesion.php"><p>¿Ya tienes una cuenta?</p></a>
