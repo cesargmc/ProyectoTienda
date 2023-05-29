@@ -90,6 +90,19 @@
                 $nuevaCantidadM = $_POST['tallam'];
                 $nuevaCantidadL = $_POST['talla__l'];
 
+                // Validar las nuevas cantidades
+                if (!$nuevaCantidadS  !is_numeric($nuevaCantidadS)  $nuevaCantidadS < 1) {
+                    $errores[] = "Debes añadir una cantidad válida para la talla S";
+                }
+
+                if (!$nuevaCantidadM  !is_numeric($nuevaCantidadM)  $nuevaCantidadM < 1) {
+                    $errores[] = "Debes añadir una cantidad válida para la talla M";
+                }
+
+                if (!$nuevaCantidadL  !is_numeric($nuevaCantidadL)  $nuevaCantidadL < 1) {
+                    $errores[] = "Debes añadir una cantidad válida para la talla L";
+                }
+
             }
         }
     }
