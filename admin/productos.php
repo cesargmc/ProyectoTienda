@@ -91,7 +91,7 @@
                 <?php while( $producto = mysqli_fetch_assoc($resultadoConsulta)): ?>
                 <tr>
                     <td class="nombre"><?php echo $producto['nombre']; ?></td>
-                    <td><?php  ?></td>
+                    <td><?php echo obtenerCantidadTotal($producto['id_producto'], $db); ?></td>
                     <td>$<?php echo $producto['precio']; ?></td>
                     <td class="crud">
                         <div class="crud__acciones">
