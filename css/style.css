@@ -216,6 +216,22 @@ h3 {
     min-width: 50%;
 }
 
+.formulario__mensaje-submit {
+    background-color: var(--secundario);
+    border: none;
+    width: 20rem;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .5s ease;
+}
+
+@media (max-width: 450px) {
+    .formulario__mensaje-submit {
+        width: 100%;
+    }
+}
+
 /** Bloques **/
 .bloques {
     display: grid;

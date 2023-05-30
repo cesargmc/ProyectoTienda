@@ -1,4 +1,46 @@
 <?php
+    // Base de datos
+    require 'includes/config/database.php';
+    $db = conectarDB();
+
+    // Arreglo de mensaje errores
+    $errores = [];
+
+    $nombre = '';
+    $email = '';
+    $mensaje = '';
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $nombre = mysqli_real_escape_string($db, $_POST['nombre']);
+        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $mensaje = mysqli_real_escape_string($db, $_POST['mensaje']);
+
+        if(!$nombre) {
+            $errores[] = "Debes añadir un nombre";
+        }
+
+        if(!$email) {
+            $errores[] = "Debes añadir un email";
+        }
+
+        if(!$mensaje) {
+            $errores[] = "Debes añadir un mensaje";
+        }
+
+        if(empty ($errores)) {
+
+            // Insertar en la base de datos
+            $query = " INSERT INTO mensaje ( nombre, email, mensaje ) VALUES ( '$nombre', '$email', '$mensaje' ) ";
+            $resultado = mysqli_query($db, $query);
+
+            if ($resultado) {
+                header("Location: nosotros.php");
+                exit;
+            }
+        }
+    }
+
     $nosotros = true;
     include './includes/templates/header.php';
 ?>
@@ -19,9 +61,10 @@
 
         <div class="mensaje">
             <form class="formulario__mensaje" method="POST">
-                <input class="formulario__mensaje-campo" type="text" placeholder="Introduzca su nombre">
-                <input class="formulario__mensaje-campo" type="text" placeholder="Introduzca su correo">
-                <textarea class="formulario__mensaje-campo" name="" id="" placeholder="Comente aquí"></textarea>
+                <input class="formulario__mensaje-campo" type="text" id="nombre" name="nombre" placeholder="Introduzca su nombre" value="<?php echo $nombre; ?>">
+                <input class="formulario__mensaje-campo" type="email" id="email" name="email" placeholder="Introduzca su correo" value="<?php echo $email; ?>">
+                <textarea class="formulario__mensaje-campo" id="mensaje" name="mensaje" placeholder="Comente aquí"><?php echo $mensaje; ?></textarea>
+                <input class="formulario__mensaje-submit" type="submit" value="Enviar">
             </form>
         </div>
     </main>
