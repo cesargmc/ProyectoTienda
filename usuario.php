@@ -23,6 +23,16 @@
     $email = 'admin@admin.com';
     $password = 'admin';
 
+    // Verificar si el correo ya existe
+    $existeEmail = false;
+    $queryVerificar = "SELECT email FROM usuario WHERE email = '${email}'";
+    $resultado = mysqli_query($db, $queryVerificar);
+
+    if ($resultado->num_rows > 0) {
+        $existeEmail = true;
+        echo "El correo electrónico ya existe en la base de datos.";
+    }
+
     $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
     // Query
