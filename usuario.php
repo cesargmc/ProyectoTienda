@@ -30,13 +30,17 @@
 
     if ($resultado->num_rows > 0) {
         $existeEmail = true;
-        echo "El correo electrónico ya existe en la base de datos.";
+        echo "El admin ya existe en la base de datos.";
     }
 
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+    // Insertar el correo si no existe
+    if (!$existeEmail) {
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-    // Query
-    $query = " INSERT INTO usuario (email, password, rol_id_rol) VALUES ( '${email}', '${passwordHash}', '1'); ";
+        // Query
+        $query = " INSERT INTO usuario (email, password, rol_id_rol) VALUES ( '${email}', '${passwordHash}', '1'); ";
 
-    // Agregar a la base de datos
-    mysqli_query($db, $query);
+        // Agregar a la base de datos
+        mysqli_query($db, $query);
+        echo "Admin registrado correctamente";
+    }
