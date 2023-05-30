@@ -1,3 +1,12 @@
+<?php 
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
+    $auth = $_SESSION['login'] ?? false;
+    var_dump($auth);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +52,9 @@
             <a class="navegacion-admin__enlace" href="ventas.php">Ventas</a>
             <a class="navegacion-admin__enlace" href="usuarios.php">Usuarios</a>
             <a class="navegacion-admin__enlace" href="mensajes.php">Mensajes</a>
-            <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+            <?php if($auth): ?>
+                <a class="navegacion-admin__enlace" href="iniciosesion.php">Cerrar Sesion</a>
+            <?php endif; ?>
         </nav>
     <?php } elseif ($productos) { ?>
         <nav class="navegacion-admin">

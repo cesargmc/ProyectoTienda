@@ -40,6 +40,7 @@
                         'rol_id' => $usuario['rol_id_rol'],
                         'id_usuario' => $usuario['id_usuario']
                     );
+                    $_SESSION['login'] = true;
 
                     if($usuario['rol_id_rol'] == 1) {
                         header("Location: admin/index.php");

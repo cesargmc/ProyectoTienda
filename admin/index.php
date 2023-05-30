@@ -36,6 +36,13 @@
     $productoMayorCantidad = $filaMaxCantidad['nombre_producto'];
     $maxCantidad = $filaMaxCantidad['cantidad'];
 
+    // Producto con menos cantidad
+    $consultaMinCantidad = "SELECT producto.nombre AS nombre_producto, talla_producto.cantidad AS cantidad FROM talla_producto INNER JOIN producto ON talla_producto.producto_id_producto = producto.id_producto ORDER BY talla_producto.cantidad ASC LIMIT 1";
+    $resultadoMinCantidad = mysqli_query($db, $consultaMinCantidad);
+    $filaMinCantidad = mysqli_fetch_assoc($resultadoMinCantidad);
+    $productoMenorCantidad = $filaMinCantidad['nombre_producto'];
+    $minCantidad = $filaMinCantidad['cantidad'];
+
     $inicio = true;
     include '../includes/templates/header.php';
 ?>
@@ -57,13 +64,13 @@
             <div class="cuadro">
                 <h3 class="cuadro__titulo">Productos con más cantidad</h3>
                 <p class="cuadro__datos"><?php echo $productoMayorCantidad; ?></p>
-                <p class="cuadro__datos"><?php echo $maxCantidad; ?></p>
+                <p class="cuadro__datos">Cantidad: <?php echo $maxCantidad; ?></p>
             </div>
         
             <div class="cuadro">
                 <h3 class="cuadro__titulo">Productos con menos cantidad</h3>
-                <p><?php echo $productoMenorCantidad; ?></p>
-                <p><?php echo $minCantidad; ?></p>
+                <p class="cuadro__datos"><?php echo $productoMenorCantidad; ?></p>
+                <p class="cuadro__datos">Cantidad: <?php echo $minCantidad; ?></p>
             </div>
         </div>
     </main>
