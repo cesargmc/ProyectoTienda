@@ -1,6 +1,6 @@
 <?php
     //Base de datos
-    require 'includes/config/database.php';
+    require '../includes/config/database.php';
     $db = conectarDB();
 
     session_start();

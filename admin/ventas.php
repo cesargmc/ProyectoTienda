@@ -1,6 +1,6 @@
 <?php
     //Base de datos 
-    require 'includes/config/database.php';
+    require '../includes/config/database.php';
     $db = conectarDB();
     
     session_start();
@@ -19,8 +19,13 @@
         exit();
     }
 
-    //Consultar usuarios
-    $consulta = "SELECT * FROM venta";
+    // Consultar ventas con información de producto y usuario
+    $consulta = "SELECT p.nombre AS nombre_producto, pv.cantidad, v.costo_total, u.usuario AS nombre_usuario 
+                FROM producto p
+                INNER JOIN producto_venta pv ON p.id_producto = pv.producto_id_producto
+                INNER JOIN venta v ON pv.venta_id_venta = v.id_venta
+                INNER JOIN usuario u ON v.usuario_id_usuario = u.id_usuario";
+
     $resultado = mysqli_query($db, $consulta);
 
     $ventas = true;
@@ -36,16 +41,14 @@
                     <th>Precio</th>
                     <th>Usuario </th>
                 </thead>
-
                 <?php while($row = mysqli_fetch_assoc($resultado) ) : ?>
                     <tr>
-                        <td><?php echo $row['producto_id_producto']; ?></td>
+                        <td><?php echo $row['nombre_producto']; ?></td>
                         <td><?php echo $row['cantidad']; ?></td>
                         <td><?php echo $row['costo_total']; ?></td>
-                        <td><?php echo $row['usuario']; ?></td>
+                        <td><?php echo $row['nombre_usuario']; ?></td>
                     </tr>
-                <?php endwhile; ?> 
-  
+                <?php endwhile; ?>
             </table>
         </div>
     </main>
