@@ -24,7 +24,8 @@
                 FROM producto p
                 INNER JOIN producto_venta pv ON p.id_producto = pv.producto_id_producto
                 INNER JOIN venta v ON pv.venta_id_venta = v.id_venta
-                INNER JOIN usuario u ON v.usuario_id_usuario = u.id_usuario";
+                INNER JOIN usuario u ON v.usuario_id_usuario = u.id_usuario
+                ORDER BY pv.fecha DESC";
 
     $resultado = mysqli_query($db, $consulta);
 
