@@ -103,7 +103,7 @@
                 $resultadoTallaL = mysqli_query($db, $queryTallaL);
 
                 if($resultadoTallaS && $resultadoTallaM && $resultadoTallaL) {
-                    header('Location: ../productos.php');
+                    header('Location: ../productos.php?resultado=1');
                 }
             }
 
