@@ -84,10 +84,10 @@
                 $query = "INSERT INTO producto_venta (producto_id_producto, venta_id_venta, cantidad, fecha) VALUES (${idProducto}, ${idVenta}, ${cantidad}, '${fecha}')";
                 mysqli_query($db, $query);
         
-                echo "<script>alert('Compra realizada correctamente');</script>";
+                echo "<script>alert('Compra realizada correctamente'); window.location.href = 'producto.php?id=" . $id . "';</script>";
             }
         } else {
-            echo "<script>alert('Compra realizada incorrectamente');</script>";
+            echo "<script>alert('Compra realizada incorrectamente'); window.location.href = 'producto.php?id=" . $id . "';</script>";
         }
     }
 ?>
