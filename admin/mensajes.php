@@ -36,7 +36,7 @@
                         <h3 class="cuadro__titulo"></h3>
                         <p><?php echo $row['nombre']; ?></p>
                         <p><?php echo $row['email']; ?></p>
-                        <p><?php echo $row['id_mensaje']; ?></p>
+                        <p><?php echo $row['mensaje']; ?></p>
                         <input class="formulario__submit" type="submit" value="Eliminar">
                     </div><!-- cuadro -->
                 <?php endwhile; ?>

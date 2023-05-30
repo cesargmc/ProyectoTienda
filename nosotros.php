@@ -34,7 +34,7 @@
             $query = " INSERT INTO mensaje ( nombre, email, mensaje ) VALUES ( '$nombre', '$email', '$mensaje' ) ";
             $resultado = mysqli_query($db, $query);
 
-            if ($resultado) {
+            if ($resultado && mysqli_affected_rows($db) > 0) {
                 header("Location: nosotros.php?resultado=1");
                 exit;
             }
@@ -54,7 +54,7 @@
             </div>
         <?php endforeach; ?>
 
-        <?php if($resultado == 1) : ?>
+        <?php if(isset($_GET['resultado']) && $_GET['resultado'] == 1) : ?>
             <p class="alerta exito">Mensaje enviado correctamente</p>
         <?php endif; ?>
 
