@@ -26,8 +26,18 @@
     // Eliminar mensaje
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Obtener id del mensaje
-        $mensajeId = $_POST['mensajeId'];
-        $mensajeId = filter_var($mensajeId, FILTER_VALIDATE_INT);
+        $mensajeID = $_POST['mensajeID'];
+        $mensajeID = filter_var($mensajeID, FILTER_VALIDATE_INT);
+
+        if ($mensajeID) {
+            // Consulta para eliminar
+            $query = " DELETE FROM mensaje WHERE id_mensaje = ${mensajeID} ";
+            mysqli_query($db, $query);
+
+            // Redireccion
+            header('Location: mensajes.php');
+            exit;
+        }
     }
 
     $mensaje = true;
@@ -45,7 +55,7 @@
                         <p><?php echo $row['email']; ?></p>
                         <p><?php echo $row['mensaje']; ?></p>
                         <form method="POST">
-                            <input type="hidden" name="mensajeId" value="<?php echo $row['id']; ?>">
+                            <input type="hidden" name="mensajeID" value="<?php echo $row['id_mensaje']; ?>">
                             <input class="formulario__submit" type="submit" value="Eliminar">
                         </form>
                     </div><!-- cuadro -->
