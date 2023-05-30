@@ -14,10 +14,20 @@
             </div>
             <img class="nosotros__imagen" src="img/nosotros.jpg" alt="Imagen nosotros">
         </div>
+
+        <h2>Mensaje</h2>
+
+        <div class="mensaje">
+            <form class="formulario__mensaje" method="POST">
+                <input class="formulario__mensaje-campo" type="text" placeholder="Introduzca su nombre">
+                <input class="formulario__mensaje-campo" type="text" placeholder="Introduzca su correo">
+                <textarea class="formulario__mensaje-campo" name="" id="" placeholder="Comente aquí"></textarea>
+            </form>
+        </div>
     </main>
 
     <section class="contenedor comprar">
-        <h2 class="comprar__titulo">¿Porqué comprar con nosotros?</h2>
+        <h2>¿Porqué comprar con nosotros?</h2>
 
         <div class="bloques">
             <div class="bloque">

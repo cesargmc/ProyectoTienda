@@ -122,7 +122,7 @@
             </div>
         <?php endforeach; ?>
         <div class="admin-añadir-producto">
-            <form class="añadir" method="POST" action="/admin/productos/crear.php" enctype="multipart/form-data">
+            <form method="POST" action="/admin/productos/crear.php" enctype="multipart/form-data">
                 <p>Nombre del producto:</p>
                 <input class="formulario__campo" id="nombre" name="nombre" value="<?php echo $nombre; ?>"><br>
             
