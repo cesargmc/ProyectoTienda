@@ -192,6 +192,30 @@ h3 {
     }
 }
 
+/** Mensaje **/
+.mensaje {
+    text-align: center;
+    border: 1rem solid var(--primarioOscuro);
+    padding: 3rem;
+}
+
+.formulario__mensaje {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 1rem;
+}
+
+.formulario__mensaje-campo {
+    border: 1rem solid var(--primarioOscuro);
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+    min-width: 50%;
+}
+
 /** Bloques **/
 .bloques {
     display: grid;
