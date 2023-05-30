@@ -35,7 +35,7 @@
             $resultado = mysqli_query($db, $query);
 
             if ($resultado) {
-                header("Location: nosotros.php");
+                header("Location: nosotros.php?resultado=1");
                 exit;
             }
         }
@@ -47,6 +47,16 @@
 
     <main class="contenedor">
         <h1>Nosotros</h1>
+
+        <?php foreach($errores as $error): ?>
+            <div class="alerta error">
+                <?php echo $error;  ?>
+            </div>
+        <?php endforeach; ?>
+
+        <?php if($resultado == 1) : ?>
+            <p class="alerta exito">Mensaje enviado correctamente</p>
+        <?php endif; ?>
 
         <div class="nosotros">
             <div class="nosotros__contenido">
