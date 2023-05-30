@@ -353,6 +353,11 @@ h3 {
     padding: 1rem;
 }
 
+.cuadro__datos {
+    font-size: 4rem;
+    text-align: center;
+}
+
 /** Productos **/
 .admin__producto {
     padding: 2rem 0;
