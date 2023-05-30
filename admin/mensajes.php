@@ -19,9 +19,16 @@
         exit();
     }
 
-    //Consultar mensajes 
+    // Consultar mensajes 
     $consulta = "SELECT * FROM mensaje";
     $resultado = mysqli_query($db, $consulta);
+
+    // Eliminar mensaje
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Obtener id del mensaje
+        $mensajeId = $_POST['mensajeId'];
+        $mensajeId = filter_var($mensajeId, FILTER_VALIDATE_INT);
+    }
 
     $mensaje = true;
     include '../includes/templates/header.php';
@@ -37,7 +44,10 @@
                         <p><?php echo $row['nombre']; ?></p>
                         <p><?php echo $row['email']; ?></p>
                         <p><?php echo $row['mensaje']; ?></p>
-                        <input class="formulario__submit" type="submit" value="Eliminar">
+                        <form method="POST">
+                            <input type="hidden" name="mensajeId" value="<?php echo $row['id']; ?>">
+                            <input class="formulario__submit" type="submit" value="Eliminar">
+                        </form>
                     </div><!-- cuadro -->
                 <?php endwhile; ?>
 
