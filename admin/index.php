@@ -29,6 +29,13 @@
     $filaIngresos = mysqli_fetch_assoc($resultadoIngresos);
     $totalIngresos = $filaIngresos['total'];
 
+    // Producto con más cantidad
+    $consultaMaxCantidad = "SELECT producto.nombre AS nombre_producto, talla_producto.cantidad AS cantidad FROM talla_producto INNER JOIN producto ON talla_producto.producto_id_producto = producto.id_producto ORDER BY talla_producto.cantidad DESC LIMIT 1";
+    $resultadoMaxCantidad = mysqli_query($db, $consultaMaxCantidad);
+    $filaMaxCantidad = mysqli_fetch_assoc($resultadoMaxCantidad);
+    $productoMayorCantidad = $filaMaxCantidad['nombre_producto'];
+    $maxCantidad = $filaMaxCantidad['cantidad'];
+
     $inicio = true;
     include '../includes/templates/header.php';
 ?>
@@ -49,8 +56,8 @@
         
             <div class="cuadro">
                 <h3 class="cuadro__titulo">Productos con más cantidad</h3>
-                <p><?php echo $productoMayorCantidad; ?></p>
-                <p><?php echo $maxCantidad; ?></p>
+                <p class="cuadro__datos"><?php echo $productoMayorCantidad; ?></p>
+                <p class="cuadro__datos"><?php echo $maxCantidad; ?></p>
             </div>
         
             <div class="cuadro">
